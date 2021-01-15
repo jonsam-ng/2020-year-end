@@ -1,4 +1,4 @@
-import React, { FC } from '../../../lock/node_modules/react';
+import React, { FC } from 'react';
 import './index.scss';
 
 const CircleLoading: FC = (props: any) => {
