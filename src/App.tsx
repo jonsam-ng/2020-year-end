@@ -1,4 +1,4 @@
-import React, { FC, lazy, Suspense } from 'react';
+import React, { FC, lazy, Suspense } from './components/lock/node_modules/react';
 import Router from './router';
 import useStore from './stores/index';
 import { observer } from 'mobx-react';

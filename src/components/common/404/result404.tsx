@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../lock/node_modules/react';
 import { Result, Button } from 'antd';
 
 const Result404 = () => {

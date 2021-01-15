@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../lock/node_modules/react';
 import loading from '../../assets/img/loading.png';
 import style from './index.module.scss';
 

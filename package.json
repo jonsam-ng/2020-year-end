@@ -1,31 +1,22 @@
 {
-  "name": "react-ts-food-order",
+  "name": "2020-year-end",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sentry/browser": "^5.20.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
-    "@types/lodash": "^4.14.158",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
-    "@types/react-document-title": "^2.0.4",
     "@types/react-dom": "^16.9.0",
     "ahooks": "^2.4.0",
     "antd": "^4.5.1",
-    "i18next": "^19.6.3",
-    "i18next-browser-languagedetector": "^5.0.0",
-    "i18next-http-backend": "^1.0.17",
-    "lodash": "^4.17.19",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.5",
-    "node-sass": "^4.14.1",
+    "node-sass": "4.14.1",
     "react": "^16.13.1",
-    "react-document-title": "^2.0.3",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
@@ -53,6 +44,5 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.5"
-  },
-  "proxy": "https://dldir1.qq.com"
+  }
 }

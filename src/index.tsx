@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './components/lock/node_modules/react';
 import ReactDOM from 'react-dom';
 import App from './App';
 // import * as Sentry from '@sentry/browser';
