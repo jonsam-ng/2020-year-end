@@ -1,0 +1,18 @@
+// 渐变色的background-image与设置圆角的border-radius不能并存
+.cl--containder{
+  position: relative;
+  outline: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(rgb(212, 148, 198),rgb(145, 191, 218));
+  background-clip: padding-box;
+  padding: 4px;
+  animation: circle-rotate 0.6s linear infinite;
+  margin: 2% auto;
+}
+
+@keyframes circle-rotate {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}

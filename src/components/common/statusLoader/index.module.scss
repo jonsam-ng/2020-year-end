@@ -1,0 +1,25 @@
+@import '../../style/variable.scss';
+
+.dl__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) translateY(-$header_height);
+	p {
+		text-align: center;
+	}
+	.dl__loading__icon {
+		margin-bottom: 30px;
+		animation: cirle-anim $loading_retate_rate linear infinite;
+	}
+}
+
+@keyframes cirle-anim {
+	100% {
+		transform: rotate(360deg);
+	}
+}
