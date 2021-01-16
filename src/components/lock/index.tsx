@@ -64,7 +64,7 @@ const LockPage: FC = () => {
       if(pass.join("") === defaultPass) {
         setTimeout(() => {
           history.push("/desktop");
-        }, 1000)
+        }, 500)
       }else {
         setTryAgain(true);
         setPass([]);
