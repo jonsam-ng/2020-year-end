@@ -5,16 +5,8 @@
 - install: yarn
 - run: yarn start
 
-## techs
+## TODO
 
-- lang: typescript
-- framework: react hooks
-- style: sacc
-- UI: antd
-- store: MobX
-- router: react-router-dom
-- log: sentry
-- tools: lodash ahooks react-document-title
-- i18n: react-i18next
-- animation: ant motion
-- test: jest
+1. 视频流式播放
+2. 移动端播放全屏去除操作栏
+3. 滑动解锁

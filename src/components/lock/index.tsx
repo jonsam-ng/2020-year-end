@@ -92,13 +92,16 @@ const LockPage: FC = () => {
     })
   }
 
+  const handleTouchScreen = (e: any) => {
+    e.stopPropagation();
+    setShowKeyboard(true);
+  }
+
   return (
     <div
       className={style.lock_container}
-      onClick={(e) => {
-        e.stopPropagation();
-        setShowKeyboard(true);
-      }}
+      onClick={handleTouchScreen}
+      onTouchStart={handleTouchScreen}
     >
       {!showKeyboard && (
         <div className={style.lock_screen}>

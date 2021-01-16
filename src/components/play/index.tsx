@@ -29,15 +29,18 @@ const PlayPage: FC = () => {
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
-        {console.log('==>', videoAssets, videoAssets[pageIndex], pageIndex)}
         <video
           src={videoAssets[pageIndex]}
           autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
           playsInline={true}
-          x5-video-player-type="h5"
-          webkit-playsinline={true}
+          preload="true"
+          webkit-playsinline="true"
+          x5-video-player-type="h5-page"
+          x-webkit-airplay="true" 
+          x5-video-player-fullscreen="false"
+          x5-video-orientation="portraint"
         />
       </div>
       <div className={style.hangout_box}>

@@ -109,7 +109,7 @@
         margin-bottom: 0.6rem;
       }
       ul {
-        width: 3rem;
+        width: 6rem;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -122,7 +122,7 @@
           display: inline-block;
           width: 0.5rem;
           height: 0.5rem;
-          background-color: #8d8d8c;
+          background-color: #B6B1AB;
           border-radius: 50%;
           &.active {
             background-color: #e5e3e1;
@@ -131,7 +131,7 @@
       }
     }
     .visual_keyboard_wrapper {
-      height: 80%;
+      height: 70%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -185,7 +185,7 @@
       padding: 0 2rem;
       color: #fff;
       font-size: 0.8rem;
-      height: 20%;
+      height: 10%;
       span {
         &:active {
           opacity: 0.8;
