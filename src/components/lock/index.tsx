@@ -94,6 +94,7 @@ const LockPage: FC = () => {
 
   const handleTouchScreen = (e: any) => {
     e.stopPropagation();
+    e.preventDefault();
     setShowKeyboard(true);
   }
 

@@ -34,13 +34,15 @@ const PlayPage: FC = () => {
           autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
-          playsInline={true}
           preload="true"
+          playsInline={true}
           webkit-playsinline="true"
           x5-video-player-type="h5-page"
+          x5-playsinline="true"
           x-webkit-airplay="true" 
           x5-video-player-fullscreen="false"
           x5-video-orientation="portraint"
+          x5-video-ignore-metadata='true'
         />
       </div>
       <div className={style.hangout_box}>
