@@ -1,0 +1,52 @@
+@import "../../style/mixin.scss";
+.call_container {
+  @include bgStyle;
+  background: #212020;
+  color: #fff;
+  position: relative;
+
+  .avatar_box {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 14px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      margin: 8px 0;
+      color: #a8a7a7;
+      &.bounce_dots{
+        animation: heartBeat 2s ease-in-out 2s infinite;
+        font-weight: 400;
+        letter-spacing: 2px;
+      }
+    }
+  }
+  .call_box {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    bottom: 80px;
+    img{
+      width: 80px;
+      height: auto;
+      animation: bounce 2s ease-in-out 2s infinite;
+    }
+  }
+}

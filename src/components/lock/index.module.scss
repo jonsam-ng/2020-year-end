@@ -1,15 +1,6 @@
+@import "../../style/mixin.scss";
 .lock_container {
-  background-image: url(../../assets/image/img-lock-bg.jpg);
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: rgba(0, 0, 0, 0.3);
-  background-blend-mode: multiply;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
+  @include bgStyle;
 
   .lock_screen {
     display: flex;
@@ -17,22 +8,6 @@
     justify-content: flex-start;
     flex-direction: column;
     padding-top: 100px;
-    .lock_title {
-      color: #fff;
-      font-weight: normal;
-      width: 100%;
-      h1 {
-        font-size: 3rem;
-        padding: 0;
-        margin: 0;
-      }
-      h2 {
-        font-size: 0.8rem;
-      }
-      h3 {
-        font-size: 0.6rem;
-      }
-    }
     .lock_card {
       width: 80%;
       border-radius: 1.5rem;
@@ -41,52 +16,63 @@
       font-size: 0.92rem;
       padding: 20px;
       text-align: left;
-      
+      animation: fadeInUp 0.5s ease-out 0s 1;
+
       .card_header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         color: #444443;
         font-size: 0.8rem;
-        div{
-          span{
-            color: #3b3a39;
+        height: 52px;
+        .card_badge{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          img{
+            width: 36px;
+            height: 36px;
+            margin-right: 10px;
           }
-        } 
+          span {
+            color: #222221;
+          }
+        }
       }
-      p{
+      p {
         color: #7e7e7e;
         margin-bottom: 0;
         line-height: 1.5rem;
+        margin-top: 0;
       }
     }
-    .lock_trigger{
+    .lock_trigger {
       position: absolute;
-      bottom: 80px;
+      bottom: 65px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      .lock_hint{
+      .lock_hint {
         color: #fff;
         font-size: 0.8rem;
         font-weight: 300;
         animation: toggleShow 2s ease-in-out 0s infinite;
       }
-      .lock_arrow{
-        .arrow_ani{
+      .lock_arrow {
+        .arrow_ani {
           width: 16px;
           height: 11px;
           background-image: url("../../assets/image/arr.png");
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
-          &:first-of-type{
+          &:first-of-type {
             animation: slideUp 2s ease-in-out 1s infinite;
           }
-          &:last-of-type{
+          &:last-of-type {
             animation: slideUp2 2s ease-in-out 1s infinite;
           }
         }
@@ -94,7 +80,7 @@
     }
   }
 
-  .lock_keyboard{
+  .lock_keyboard {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -107,48 +93,51 @@
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 999;
     color: #fff;
-    .input_pass{
+    .input_pass {
       width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-self: start;
       padding-top: 100px;
-      p{
+      p {
         font-size: 1.3rem;
         letter-spacing: 5px;
         margin-bottom: 10px;
       }
-      ul{
+      ul {
         width: 160px;
         display: flex;
         align-items: center;
         justify-content: space-around;
         padding: 0;
+        &.pass_ani{
+          animation: shakeX 0.3s ease-in-out 0s 1;
+        }
         li.pass_dot {
           list-style: none;
           display: inline-block;
           width: 13px;
           height: 13px;
-          background-color: #B6B1AB;
+          background-color: #8d8d8c;
           border-radius: 50%;
-          &.active{
-            background-color: #E5E3E1;
+          &.active {
+            background-color: #e5e3e1;
           }
         }
       }
     }
-    .visual_keyboard{
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
+    .visual_keyboard {
+      display: grid;
+      grid-template-columns: repeat(3, 33.33%);
       padding-top: 60px;
-      
-      .board_item{
+      justify-items: center;
+      align-items: center;
+
+      .board_item {
         width: 70px;
         height: 70px;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.15);
         border-radius: 50%;
         margin: 12px;
         display: flex;
@@ -157,20 +146,29 @@
         justify-content: center;
         cursor: pointer;
         transition: background-color 0.2s ease-in-out;
-        &:focus,&:active{
+        &:focus,
+        &:active {
           background-color: rgba(255, 255, 255, 0.3);
+          span {
+            &:first-of-type {
+              animation: bounce2 0.2s ease-in-out 0s 1;
+            }
+          }
         }
-        span{
-          &:first-of-type{
+        &[data-index="0"] {
+          grid-column-start: 2;
+        }
+        span {
+          &:first-of-type {
             font-size: 2rem;
           }
-          &:last-of-type{
+          &:last-of-type {
             font-size: 0.6rem;
           }
         }
       }
     }
-    .opt_panel{
+    .opt_panel {
       width: 100vw;
       display: flex;
       align-items: center;
@@ -179,24 +177,28 @@
       color: #fff;
       font-size: 1.3rem;
       padding-top: 40px;
+      span{
+        &:active{
+          opacity: 0.8;
+        }
+      }
     }
   }
 
   @keyframes toggleShow {
-    to{
+    to {
       opacity: 0;
-      // font-size: 0.78rem;
     }
   }
 
   @keyframes slideUp {
-    from{
+    from {
       opacity: 0;
       transform: translateY(20px);
     }
   }
   @keyframes slideUp2 {
-    from{
+    from {
       opacity: 0;
       transform: translateY(5px);
     }

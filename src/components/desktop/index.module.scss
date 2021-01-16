@@ -1,0 +1,16 @@
+@import "../../style/mixin.scss";
+.desktop_container{
+  @include bgStyle;
+  padding-top: 100px;
+  position: relative;
+  .desktop_menu{
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    img{
+      width: 160px;
+      animation: bounce 2s ease-in-out 0s infinite;
+    }
+  }
+}

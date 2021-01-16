@@ -1,11 +1,18 @@
 import React, { FC, useState, useEffect } from "react";
-import { currentTime } from "../../utils";
+import config from "../../config";
+import TimeBlock from "../common/timeBlock";
+import { useHistory } from "react-router-dom";
+import badgeImage from "../../assets/image/0.png";
 import style from "./index.module.scss";
 
 const LockPage: FC = () => {
   const [showKeyboard, setShowKeyboard] = useState<boolean>(false);
   const [pass, setPass] = useState<string[]>([]);
-  const { time, date, day } = currentTime();
+  const [tryAgain, setTryAgain] = useState<boolean>(false);
+  const {defaultPass} = config;
+  const history = useHistory();
+
+  const messageAudio = require("../../assets/audio/message.mp3");
 
   const getActiveClass = (idx: number) =>
     pass.length >= idx + 1 ? style.active : "";
@@ -51,19 +58,40 @@ const LockPage: FC = () => {
       term: "",
     },
   ];
+
   useEffect(() => {
-    console.log("==>", { pass });
-  }, [pass]);
+    if(pass.length >= 4 ) {
+      if(pass.join("") === defaultPass) {
+        setTimeout(() => {
+          history.push("/desktop");
+        }, 1000)
+      }else {
+        setTryAgain(true);
+        setPass([]);
+        setTimeout(() => {
+          setTryAgain(false);
+        }, 1000)
+      }
+    } 
+    // @ts-ignore
+  }, [pass.join("")]);
 
   const handleDelete = (e: any) => {
     e.stopPropagation();
     if (!pass.length && showKeyboard) {
-      console.log("==>", 111);
       setShowKeyboard(false);
       return;
     }
     setPass(pass.join("").slice(0, -1).split(""));
   };
+
+  const handleKeyboardClick = (e: any, no:string) => {
+    e.stopPropagation();
+    setPass(() => {
+      let p = [...pass, no];
+      return p;
+    })
+  }
 
   return (
     <div
@@ -75,21 +103,17 @@ const LockPage: FC = () => {
     >
       {!showKeyboard && (
         <div className={style.lock_screen}>
-          <div className={style.lock_title}>
-            <h1>{time}</h1>
-            <h2>{date}</h2>
-            <h3>{day}</h3>
-          </div>
+          <TimeBlock />
           <div className={style.lock_card}>
             <div className={style.card_header}>
-              <div>
-                <img src="" alt="" srcSet="" />
-                <span>人民入保放假客服 </span>
+              <div className={style.card_badge}>
+                <img src={badgeImage} alt="badgeImage" />
+                <span>宜川中学教育集团客户端</span>
               </div>
               <span>刚刚</span>
             </div>
             <p>
-              鹤骨鸡肤开放后即可噶科技股份可高科技福建客户鼓风机好尬接口规范换个积分卡嘎咖啡机好机会厂家发货款
+            庚子鼠年，宜中人同心同行，一往无前！鞭炮响，新年到！让我们鞭蹄，牛来运转！嬴在开门，胜在牛年！>>
             </p>
           </div>
           <div className={style.lock_trigger}>
@@ -106,7 +130,7 @@ const LockPage: FC = () => {
         <div className={style.lock_keyboard}>
           <div className={style.input_pass}>
             <p>请输入密码2020</p>
-            <ul>
+            <ul className={`${tryAgain ? style.pass_ani : ""}`}>
               {[0, 1, 2, 3].map((idx) => (
                 <li
                   className={`${style.pass_dot} ${getActiveClass(idx)}`}
@@ -118,17 +142,10 @@ const LockPage: FC = () => {
           <div className={style.visual_keyboard}>
             {keyboardMap.map(({ no, term }) => (
               <div
-                className={style.board_item}
+                className={`${style.board_item}`}
+                data-index={no}
                 key={no}
-                onClick={() =>
-                  setPass(() => {
-                    let p = [...pass, no];
-                    if (p.length >= 4) {
-                      p = [];
-                    }
-                    return p;
-                  })
-                }
+                onClick={(e) => handleKeyboardClick(e, no)}
               >
                 <span>{no}</span>
                 <span>{term}</span>
@@ -141,6 +158,8 @@ const LockPage: FC = () => {
           </div>
         </div>
       )}
+
+      <audio src={messageAudio} autoPlay={true} loop={false}/>
     </div>
   );
 };

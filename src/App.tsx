@@ -1,18 +1,19 @@
-import React, { FC, Suspense } from 'react';
-import Router from './router';
-import { observer } from 'mobx-react';
-import loading from "./components/common/loading/circleLoading"
-import './App.scss';
+import React, { FC, Suspense } from "react";
+import Router from "./router";
+import loading from "./components/common/loading/circleLoading";
+import ContextProvider from "./store";
+import "./App.scss";
 
 const App: FC = () => {
-
   return (
     <Suspense fallback={loading}>
-      <div className="App">
-        <Router />
-      </div>
-    </Suspense> 
+      <ContextProvider>
+        <div className="App">
+          <Router />
+        </div>
+      </ContextProvider>
+    </Suspense>
   );
-}
+};
 
-export default observer(App);
+export default App;
