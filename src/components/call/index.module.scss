@@ -12,27 +12,27 @@
     align-items: center;
     justify-content: flex-start;
     .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 14px;
+      width: 3.8rem;
+      height: 3.8rem;
+      border-radius: 0.2rem;
       background-size: cover;
       background-position: center;
       overflow: hidden;
     }
     h1 {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      margin-bottom: 0;
+      margin: 0.4rem 0 0.14rem;
     }
     p {
-      font-size: 0.8rem;
+      font-size: 0.6rem;
       font-weight: 300;
-      margin: 8px 0;
       color: #a8a7a7;
+      margin: 0;
       &.bounce_dots{
         animation: heartBeat 2s ease-in-out 2s infinite;
         font-weight: 400;
-        letter-spacing: 2px;
+        letter-spacing: 0.08rem;
       }
     }
   }
@@ -42,9 +42,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    bottom: 80px;
+    bottom: 2rem;
+    z-index: 999;
     img{
-      width: 80px;
+      width: 2.6rem;
       height: auto;
       animation: bounce 2s ease-in-out 2s infinite;
     }

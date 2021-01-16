@@ -138,7 +138,8 @@ const LockPage: FC = () => {
               ))}
             </ul>
           </div>
-          <div className={style.visual_keyboard}>
+          <div className={style.visual_keyboard_wrapper}>
+            <div className={style.visual_keyboard}>
             {keyboardMap.map(({ no, term }) => (
               <div
                 className={`${style.board_item}`}
@@ -150,6 +151,7 @@ const LockPage: FC = () => {
                 <span>{term}</span>
               </div>
             ))}
+            </div>
           </div>
           <div className={style.opt_panel}>
             <span>紧急呼叫</span>
