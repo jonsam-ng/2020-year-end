@@ -7,7 +7,7 @@ const { total } = config;
 // ---------- Reducer of Store ---------- //
 const reducer = (state: IState, action: IAction) => {
   const { pageIndex } = state;
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     case actionType.NEXT_PAGE:
       return { ...state, pageIndex: (pageIndex + 1) % total };

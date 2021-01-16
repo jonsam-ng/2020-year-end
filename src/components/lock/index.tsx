@@ -73,8 +73,7 @@ const LockPage: FC = () => {
         }, 1000)
       }
     } 
-    // @ts-ignore
-  }, [pass.join("")]);
+  }, [pass, defaultPass, history]);
 
   const handleDelete = (e: any) => {
     e.stopPropagation();
