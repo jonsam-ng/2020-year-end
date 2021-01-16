@@ -19,7 +19,7 @@ const DesktopPage: FC = () => {
       },
       pageIndex === 0 ? callDelay + 500 : callDelay
     );
-  }, [callDelay, history]);
+  }, [callDelay, history, pageIndex]);
 
   return (
     <div className={style.desktop_container}>

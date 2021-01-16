@@ -8,7 +8,7 @@ const App: FC = () => {
   return (
     <Suspense fallback={loading}>
       <ContextProvider>
-        <div className="App">
+        <div className="App" onContextMenu={(e: any) => e.preventDefault()}>
           <Router />
         </div>
       </ContextProvider>
