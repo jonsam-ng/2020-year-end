@@ -10,6 +10,7 @@ const PlayPage: FC = () => {
   const history = useHistory();
   const { state, dispatch } = useStore();
   const videoRef: any = useRef();
+  const timer: any = useRef();
   const { pageIndex } = state;
   const { cdnUrl } = config;
 
@@ -63,6 +64,17 @@ const PlayPage: FC = () => {
     return (window.devicePixelRatio || 1) / backingStore;
   };
 
+  const handleVideoPlay = () => {
+    const canvas: any = document.querySelector("#canvas");
+    const context = canvas.getContext("2d");
+    const video: any = document.querySelector("#video-js");
+
+    timer.current = setInterval(() => {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    }, 10);
+  };
+
   useEffect(() => {
     const video: any = document.querySelector("#video-js");
     const canvas: any = document.querySelector("#canvas");
@@ -70,15 +82,8 @@ const PlayPage: FC = () => {
 
     // 视频清晰化
     const ratio = getPixelRatio(context);
-
     canvas.width = canvas.width * ratio * 2;
     canvas.height = canvas.height * ratio * 2;
-    let timer: any = null;
-
-    timer = setInterval(() => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    }, 10);
 
     function playVideo() {
       video.play();
@@ -87,7 +92,7 @@ const PlayPage: FC = () => {
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
 
     return () => {
-      clearInterval(timer);
+      clearInterval(timer.current);
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
     };
   }, []);
@@ -95,11 +100,6 @@ const PlayPage: FC = () => {
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
-        <canvas
-          id="canvas"
-          className={style.video_canvas}
-          style={{ height: "100vh", width: "100vw" }}
-        ></canvas>
         <video
           id="video-js"
           className={`video-js ${style.video_player}`}
@@ -126,7 +126,13 @@ const PlayPage: FC = () => {
           // poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
           // onTimeUpdate={handleTimeUpdate}
           src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
+          onCanPlayThrough={handleVideoPlay}
         ></video>
+        <canvas
+          id="canvas"
+          className={style.video_canvas}
+          style={{ height: "100vh", width: "100vw" }}
+        ></canvas>
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
