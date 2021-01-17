@@ -45,7 +45,7 @@ const CallPage: FC = () => {
           <img src={callImage} alt="call" onClick={handleCallClick} />
         </div>
       </div>
-      <audio src={`${cdnUrl}/audio/call.mp3`} autoPlay={true} loop={true} />
+      <audio src={`${cdnUrl}/audio/call.mp3`} autoPlay={true} loop={true} style={{visibility: "hidden"}}/>
     </div>
   );
 };
