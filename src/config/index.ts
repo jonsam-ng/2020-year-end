@@ -1,5 +1,5 @@
 export default {
-  defaultPass: "2020", // 解屏界面默认密码
+  defaultPass: "2021", // 解屏界面默认密码
   total: 7, // 数据的总数量
   avatarHint: [
     "领导组",

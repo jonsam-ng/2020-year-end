@@ -17,12 +17,12 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    bottom: 4.6rem;
+    bottom: 1rem;
     z-index: 999;
     img{
       width: 2.5rem;
       height: auto;
-      animation: bounce 2s ease-in-out 0s infinite;
+      // animation: bounce 2s ease-in-out 0s infinite;
     }
   }
 }

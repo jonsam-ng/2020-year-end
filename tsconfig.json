@@ -20,7 +20,6 @@
     "jsx": "react",
     "experimentalDecorators": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src" ],
+  "exclude": ["src/plugin/*"]
 }

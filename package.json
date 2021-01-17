@@ -1,7 +1,7 @@
 {
   "name": "2020-year-end",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "http://qn176q151.hn-bkt.clouddn.com/",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
@@ -43,7 +43,7 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "resolve": "1.15.0",
@@ -82,7 +82,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.3",
-    "@types/react-router-dom": "^5.1.5"
+    "@types/react-router-dom": "^5.1.5",
+    "video.js": "^7.10.2"
   },
   "jest": {
     "roots": [

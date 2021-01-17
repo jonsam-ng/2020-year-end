@@ -4,3 +4,11 @@
   -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+:global {
+  video::-webkit-media-controls-start-playback-button {
+    display: none;
+  }
+  video::-webkit-media-controls {
+    display: none;
+  }
+}

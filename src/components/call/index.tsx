@@ -46,11 +46,11 @@ const CallPage: FC = () => {
         <p className={style.bounce_dots}>邀请你进行视频通话<span>...</span></p>
       </div>
       <div className={style.call_box}>
-        <div>
-          <img src={callImage} alt="call" onClick={handleCallClick} />
+      <div>
+          <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
         </div>
         <div>
-          <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
+          <img src={callImage} alt="call" onClick={handleCallClick} />
         </div>
       </div>
       <audio src={callAudio} autoPlay={true} loop={true}/>
