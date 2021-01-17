@@ -20,7 +20,7 @@ const PlayPage: FC = () => {
 
   useEffect(() => {
     const player = videojs("video-js");
-    player.play();
+    // player.play();
   }, [])
 
   return (

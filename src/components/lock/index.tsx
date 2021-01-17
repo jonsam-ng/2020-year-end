@@ -76,7 +76,9 @@ const LockPage: FC = () => {
   const handleDelete = (e: any) => {
     e.stopPropagation();
     if (!pass.length && showKeyboard) {
-      setShowKeyboard(false);
+      setTimeout(() => {
+        setShowKeyboard(false);
+      }, 400)
       return;
     }
     setPass(pass.join("").slice(0, -1).split(""));
@@ -93,7 +95,9 @@ const LockPage: FC = () => {
   const handleTouchScreen = (e: any) => {
     e.stopPropagation();
     e.preventDefault();
-    setShowKeyboard(true);
+    setTimeout(() => {
+      setShowKeyboard(true);
+    }, 400)
   }
 
   return (
