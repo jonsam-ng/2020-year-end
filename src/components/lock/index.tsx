@@ -9,10 +9,8 @@ const LockPage: FC = () => {
   const [showKeyboard, setShowKeyboard] = useState<boolean>(false);
   const [pass, setPass] = useState<string[]>([]);
   const [tryAgain, setTryAgain] = useState<boolean>(false);
-  const {defaultPass} = config;
+  const {defaultPass, cdnUrl} = config;
   const history = useHistory();
-
-  const messageAudio = require("../../assets/audio/message.mp3");
 
   const getActiveClass = (idx: number) =>
     pass.length >= idx + 1 ? style.active : "";
@@ -132,7 +130,7 @@ const LockPage: FC = () => {
       {showKeyboard && (
         <div className={style.lock_keyboard}>
           <div className={style.input_pass}>
-            <p>请输入密码2020</p>
+            <p>请输入密码2021</p>
             <ul className={`${tryAgain ? style.pass_ani : ""}`}>
               {[0, 1, 2, 3].map((idx) => (
                 <li
@@ -164,7 +162,7 @@ const LockPage: FC = () => {
         </div>
       )}
 
-      <audio src={messageAudio} autoPlay={true} loop={false}/>
+      <audio src={`${cdnUrl}/call.mp3`} autoPlay={true} loop={false}/>
     </div>
   );
 };
