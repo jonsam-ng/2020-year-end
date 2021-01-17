@@ -8,10 +8,10 @@
     width: 100%;
     height: 100%;
     z-index: 998;
-    .video_player{
+    canvas.video_canvas{
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
       position: fixed;
       top: 0;
       bottom: 0;

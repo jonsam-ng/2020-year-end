@@ -19,31 +19,32 @@ const PlayPage: FC = () => {
     history.push("/call");
   };
 
-  useEffect(() => {
-    // const player: any = videojs("video-js", {
-    //   controls: false,
-    //   autoplay: true,
-    //   preload: "auto",
-    //   loop: false,
-    //   sources: [
-    //     {
-    //       src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
-    //       type: "video/mp4",
-    //     },
-    //   ],
-    // });
-    // function playVideo() {
-    //   player?.play();
-    // }
-    // player.ready(function () {
-    //   playVideo();
-    // });
-    // document.addEventListener("WeixinJSBridgeReady", playVideo, false);
-    // return () => {
-    //   document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
-    //   player.dispose();
-    // };
-  }, [cdnUrl, pageIndex]);
+  // useEffect(() => {
+  // const player: any = videojs("video-js", {
+  //   controls: false,
+  //   autoplay: true,
+  //   preload: "auto",
+  //   loop: false,
+  //   sources: [
+  //     {
+  //       src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
+  //       type: "video/mp4",
+  //     },
+  //   ],
+  // });
+  // function playVideo() {
+  //   player?.play();
+  // }
+  // player.ready(function () {
+  //   playVideo();
+  // });
+  // document.addEventListener("WeixinJSBridgeReady", playVideo, false);
+  // return () => {
+  //   document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
+  //   player.dispose();
+  // };
+
+  // }, [cdnUrl, pageIndex]);
 
   window.onresize = function () {
     videoRef.current.style.width = window.innerWidth + "px";
@@ -79,8 +80,15 @@ const PlayPage: FC = () => {
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
     }, 10);
 
+    function playVideo() {
+      video.play();
+    }
+
+    document.addEventListener("WeixinJSBridgeReady", playVideo, false);
+
     return () => {
       clearInterval(timer);
+      document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
     };
   }, []);
 
@@ -89,6 +97,7 @@ const PlayPage: FC = () => {
       <div className={style.play_wrapper}>
         <canvas
           id="canvas"
+          className={style.video_canvas}
           style={{ height: "100vh", width: "100vw" }}
         ></canvas>
         <video

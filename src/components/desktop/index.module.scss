@@ -1,7 +1,7 @@
 @import "../../style/mixin.scss";
 .desktop_container{
   @include bgStyle;
-  padding-top: 3rem;
+  padding-top: 2rem;
   position: relative;
   .desktop_menu{
     position: fixed;

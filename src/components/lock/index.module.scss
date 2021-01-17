@@ -7,14 +7,14 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    padding-top: 3rem;
+    padding-top: 2rem;
     .lock_card {
       width: 75%;
-      border-radius: 1.5rem;
+      border-radius: 1rem;
       border: none;
       background-color: rgba(255, 255, 255, 0.9);
       font-size: 0.67rem;
-      padding: 0.8rem;
+      padding: 0.6rem;
       text-align: left;
       animation: fadeInUp 0.5s ease-out 0s 1;
       margin-top: 1rem;
@@ -26,7 +26,7 @@
         justify-content: space-between;
         color: #444443;
         font-size: 0.6rem;
-        height: 2rem;
+        height: 1.8rem;
         .card_badge {
           display: flex;
           align-items: center;
