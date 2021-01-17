@@ -74,6 +74,8 @@ const PlayPage: FC = () => {
           x5-video-player-fullscreen="true"
           x5-video-orientation="portraint"
           x5-video-ignore-metadata="true"
+          controlsList="nofullscreen nodownload noremoteplayback"
+          poster={`${cdnUrl}/eymain/assets/image/poster/poster${pageIndex}.png`}
         ></video>
       </div>
       <div className={style.hangout_box}>
