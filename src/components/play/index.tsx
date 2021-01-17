@@ -3,7 +3,7 @@ import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
-import videojs from "video.js";
+// import videojs from "video.js";
 import style from "./index.module.scss";
 
 const PlayPage: FC = () => {
@@ -20,29 +20,29 @@ const PlayPage: FC = () => {
   };
 
   useEffect(() => {
-    const player: any = videojs("video-js", {
-      controls: false,
-      autoplay: true,
-      preload: "auto",
-      loop: false,
-      sources: [
-        {
-          src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
-          type: "video/mp4",
-        },
-      ],
-    });
-    function playVideo() {
-      player?.play();
-    }
-    player.ready(function () {
-      playVideo();
-    });
-    document.addEventListener("WeixinJSBridgeReady", playVideo, false);
-    return () => {
-      document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
-      player.dispose();
-    };
+    // const player: any = videojs("video-js", {
+    //   controls: false,
+    //   autoplay: true,
+    //   preload: "auto",
+    //   loop: false,
+    //   sources: [
+    //     {
+    //       src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
+    //       type: "video/mp4",
+    //     },
+    //   ],
+    // });
+    // function playVideo() {
+    //   player?.play();
+    // }
+    // player.ready(function () {
+    //   playVideo();
+    // });
+    // document.addEventListener("WeixinJSBridgeReady", playVideo, false);
+    // return () => {
+    //   document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
+    //   player.dispose();
+    // };
   }, [cdnUrl, pageIndex]);
 
   window.onresize = function () {
@@ -50,19 +50,58 @@ const PlayPage: FC = () => {
     videoRef.current.style.height = window.innerHeight + "px";
   };
 
+  const getPixelRatio = function (context: any) {
+    const backingStore =
+      context.backingStorePixelRatio ||
+      context.webkitBackingStorePixelRatio ||
+      context.mozBackingStorePixelRatio ||
+      context.msBackingStorePixelRatio ||
+      context.oBackingStorePixelRatio ||
+      context.backingStorePixelRatio ||
+      1;
+    return (window.devicePixelRatio || 1) / backingStore;
+  };
+
+  useEffect(() => {
+    const video: any = document.querySelector("#video-js");
+    const canvas: any = document.querySelector("#canvas");
+    const context = canvas.getContext("2d");
+
+    // 视频清晰化
+    const ratio = getPixelRatio(context);
+
+    canvas.width = canvas.width * ratio * 2;
+    canvas.height = canvas.height * ratio * 2;
+    let timer: any = null;
+
+    timer = setInterval(() => {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    }, 10);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
+        <canvas
+          id="canvas"
+          style={{ height: "100vh", width: "100vw" }}
+        ></canvas>
         <video
           id="video-js"
           className={`video-js ${style.video_player}`}
           ref={videoRef}
           style={{
-            width: "100%",
-            height: "100%",
+            width: 0,
+            height: 0,
             objectFit: "fill",
+            // visibility: "hidden",
           }}
-          // autoPlay={true}
+          autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
           preload="true"
@@ -75,7 +114,9 @@ const PlayPage: FC = () => {
           x5-video-orientation="portraint"
           x5-video-ignore-metadata="true"
           controlsList="nofullscreen nodownload noremoteplayback"
-          poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
+          // poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
+          // onTimeUpdate={handleTimeUpdate}
+          src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
         ></video>
       </div>
       <div className={style.hangout_box}>
