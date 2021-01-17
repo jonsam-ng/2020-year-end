@@ -4,7 +4,8 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+      content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="2020 year end h5, made by heart by jonsam." />
     <title>2020 Year End</title>
@@ -24,6 +25,14 @@
       })()
     </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        ; (function () {
+          var src = '//cdn.jsdelivr.net/npm/eruda';
+          if (!/debug=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+          document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+          document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+        })();
+    </script>
   </body>
 
 </html>
