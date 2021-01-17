@@ -28,8 +28,8 @@ const PlayPage: FC = () => {
       <div className={style.play_wrapper}>
         <video
           id="video-js"
-          className="video-js"
           data-setup="{}"
+          className={`video-js ${style.video_player}`}
           src={`${cdnUrl}/${pageIndex}.mp4`}
           autoPlay={true}
           controls={false}
