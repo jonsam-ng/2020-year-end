@@ -36,9 +36,6 @@ const PlayPage: FC = () => {
       player?.play();
     }
     player.ready(function() {
-      if(!player.isFullscreen()) {
-        player.isFullscreen(true);
-      }
       playVideo();
     });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
@@ -60,7 +57,7 @@ const PlayPage: FC = () => {
             height: "100%",
             objectFit: "cover",
           }}
-          autoPlay={true}
+          // autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
           preload="true"
