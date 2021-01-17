@@ -62,7 +62,7 @@ const PlayPage: FC = () => {
             height: "100%",
             objectFit: "fill",
           }}
-          // autoPlay={true}
+          autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
           preload="true"
