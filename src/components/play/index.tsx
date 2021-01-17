@@ -35,7 +35,7 @@ const PlayPage: FC = () => {
     function playVideo() {
       player?.play();
     }
-    player.ready(function() {
+    player.ready(function () {
       playVideo();
     });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
@@ -44,6 +44,11 @@ const PlayPage: FC = () => {
       player.dispose();
     };
   }, [cdnUrl, pageIndex]);
+
+  window.onresize = function () {
+    videoRef.current.style.width = window.innerWidth + "px";
+    videoRef.current.style.height = window.innerHeight + "px";
+  };
 
   return (
     <div className={style.play_container}>
@@ -69,8 +74,7 @@ const PlayPage: FC = () => {
           x5-video-player-fullscreen="true"
           x5-video-orientation="portraint"
           x5-video-ignore-metadata="true"
-        >
-        </video>
+        ></video>
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
