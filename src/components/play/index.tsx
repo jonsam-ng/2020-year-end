@@ -27,7 +27,7 @@ const PlayPage: FC = () => {
       loop: false,
       sources: [
         {
-          src: `${cdnUrl}/${pageIndex}.mp4`,
+          src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
           type: "video/mp4",
         },
       ],
@@ -60,7 +60,7 @@ const PlayPage: FC = () => {
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: "fill",
           }}
           // autoPlay={true}
           controls={false}
@@ -75,7 +75,7 @@ const PlayPage: FC = () => {
           x5-video-orientation="portraint"
           x5-video-ignore-metadata="true"
           controlsList="nofullscreen nodownload noremoteplayback"
-          poster={`${cdnUrl}/eymain/assets/image/poster/poster${pageIndex}.png`}
+          poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
         ></video>
       </div>
       <div className={style.hangout_box}>

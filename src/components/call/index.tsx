@@ -29,7 +29,7 @@ const CallPage: FC = () => {
         <div
           className={`${style.avatar} ${style[`avatar_${pageIndex}`]}`}
           style={{
-            backgroundImage: `url(${cdnUrl + "/" + pageIndex + ".png"})`,
+            backgroundImage: `url(${cdnUrl + "/image/avatar/" + pageIndex + ".png"})`,
           }}
         />
         <h1>{avatarHint[pageIndex]}</h1>
@@ -45,7 +45,7 @@ const CallPage: FC = () => {
           <img src={callImage} alt="call" onClick={handleCallClick} />
         </div>
       </div>
-      <audio src={`${cdnUrl}/call.mp3`} autoPlay={true} loop={true} />
+      <audio src={`${cdnUrl}/audio/call.mp3`} autoPlay={true} loop={true} />
     </div>
   );
 };

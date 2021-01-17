@@ -11,5 +11,5 @@ export default {
     "宜川中学教育集团处室",
   ], // 头像显示的文字
   callDelay: 1000, // 继续拨打的延迟（毫秒）
-  cdnUrl: "https://qn.jonsam.site",
+  cdnUrl: "https://qn.jonsam.site/eymain/assets",
 };
