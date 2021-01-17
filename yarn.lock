@@ -1549,6 +1549,11 @@
   resolved "https://registry.npm.taobao.org/@types/stack-utils/download/@types/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha1-CoUdO9lkmPolwzq3J47TvWXwbD4=
 
+"@types/video.js@^7.3.11":
+  version "7.3.11"
+  resolved "https://registry.npm.taobao.org/@types/video.js/download/@types/video.js-7.3.11.tgz#b1749fcc733c608ede4d10c9a570ebafc4ec2486"
+  integrity sha1-sXSfzHM8YI7eTRDJpXDrr8TsJIY=
+
 "@types/yargs-parser@*":
   version "20.2.0"
   resolved "https://registry.npm.taobao.org/@types/yargs-parser/download/@types/yargs-parser-20.2.0.tgz#dd3e6699ba3237f0348cd085e4698780204842f9"

@@ -162,7 +162,7 @@ const LockPage: FC = () => {
         </div>
       )}
 
-      <audio src={`${cdnUrl}/call.mp3`} autoPlay={true} loop={false}/>
+      <audio src={`${cdnUrl}/message.mp3`} autoPlay={true} loop={false}/>
     </div>
   );
 };

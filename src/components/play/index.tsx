@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
+import videojs from "video.js";
 import style from "./index.module.scss";
 
 const PlayPage: FC = () => {
@@ -17,10 +18,16 @@ const PlayPage: FC = () => {
     history.push("/call");
   };
 
+  useEffect(() => {
+    const player = videojs("video-js");
+    player.play();
+  }, [])
+
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
         <video
+          id="video-js"
           className="video-js"
           data-setup="{}"
           src={`${cdnUrl}/${pageIndex}.mp4`}
