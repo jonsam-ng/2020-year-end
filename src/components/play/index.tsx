@@ -128,7 +128,7 @@ const PlayPage: FC = () => {
           //   },
           // }}
         ></video>
-        <img
+        {/* <img
           src={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
           alt="bg"
           style={{
@@ -141,7 +141,7 @@ const PlayPage: FC = () => {
             right: 0,
             zIndex: 999,
           }}
-        />
+        /> */}
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
