@@ -5,9 +5,7 @@ import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
 // import videojs from "video.js";
 import style from "./index.module.scss";
-// @ts-ignore
-// import wx from "weixin-js-sdk";
-import CanvasVideo from "react-canvas-video";
+import CanvasVideo from "../canvasPlayer";
 
 const PlayPage: FC = () => {
   const history = useHistory();
@@ -94,11 +92,6 @@ const PlayPage: FC = () => {
           id="video-js"
           className={`video-js ${style.video_player}`}
           ref={videoRef}
-          // style={{
-          //   width: "100%",
-          //   height: "100%",
-          //   objectFit: "fill",
-          // }}
           autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
@@ -112,14 +105,16 @@ const PlayPage: FC = () => {
           x5-video-orientation="portraint"
           x5-video-ignore-metadata="true"
           controlsList="nofullscreen nodownload noremoteplayback"
-          poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
+          // poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
           src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
           options={{
-            text: "This copy is registered for XXX!",
             poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
             autoplay: true,
           }}
           styles={{
+            width: 1,
+            height: 1,
+            visibility: "hidden",
             barContainer: {
               backgroundColor: "black",
               display: "none",
