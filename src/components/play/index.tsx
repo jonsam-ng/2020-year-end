@@ -5,6 +5,16 @@ import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
 import videojs from "video.js";
 import style from "./index.module.scss";
+const wx = require("weixin-js-sdk");
+
+wx.config({
+  debug: false,
+  appId: "",
+  timestamp: 1,
+  nonceStr: "",
+  signature: "",
+  jsApiList: [],
+});
 
 const PlayPage: FC = () => {
   const history = useHistory();
@@ -32,6 +42,7 @@ const PlayPage: FC = () => {
         },
       ],
     });
+
     function playVideo() {
       player?.play();
     }
@@ -44,6 +55,17 @@ const PlayPage: FC = () => {
       player.dispose();
     };
   }, [cdnUrl, pageIndex]);
+
+  useEffect(() => {
+    const videoPlayer: any = document.getElementById("video-js");
+    wx.ready(function () {
+      videoPlayer.play();
+    });
+
+    videoPlayer.setAttribute("x5-playsinline", "true");
+    videoPlayer.setAttribute("playsinline", "true");
+    videoPlayer.setAttribute("webkit-playsinline", "true");
+  }, []);
 
   window.onresize = function () {
     videoRef.current.style.width = window.innerWidth + "px";
