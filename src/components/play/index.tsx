@@ -6,7 +6,7 @@ import config from "../../config";
 import videojs from "video.js";
 import style from "./index.module.scss";
 // @ts-ignore
-import wx from "weixin-js-sdk";
+// import wx from "weixin-js-sdk";
 
 wx.config({
   debug: false,
@@ -48,6 +48,9 @@ const PlayPage: FC = () => {
       player?.play();
     }
     player.ready(function () {
+      player.setAttribute("x5-playsinline", "true");
+      player.setAttribute("playsinline", "true");
+      player.setAttribute("webkit-playsinline", "true");
       playVideo();
     });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
@@ -57,16 +60,12 @@ const PlayPage: FC = () => {
     };
   }, [cdnUrl, pageIndex]);
 
-  useEffect(() => {
-    const videoPlayer: any = document.getElementById("video-js");
-    wx.ready(function () {
-      videoPlayer.play();
-    });
-
-    videoPlayer.setAttribute("x5-playsinline", "true");
-    videoPlayer.setAttribute("playsinline", "true");
-    videoPlayer.setAttribute("webkit-playsinline", "true");
-  }, []);
+  // useEffect(() => {
+  // const videoPlayer: any = document.getElementById("video-js");
+  // wx.ready(function () {
+  // videoPlayer.play();
+  // });
+  // }, []);
 
   window.onresize = function () {
     videoRef.current.style.width = window.innerWidth + "px";
