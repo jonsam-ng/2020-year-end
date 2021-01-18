@@ -48,6 +48,9 @@ class CanvasVideo extends Component {
         video.setAttribute("x5-video-video-fullscreen", "true");
         video.setAttribute("x5-video-orientation", "true");
         video.setAttribute("x5-video-ignore-metadata", "true");
+        video.setAttribute("autoplay", "true");
+        video.setAttribute("controls", "false");
+        video.setAttribute("preload", "true");
         video.setAttribute(
           "controlslist",
           "nofullscreen nodownload noremoteplayback"

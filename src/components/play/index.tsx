@@ -117,10 +117,6 @@ const PlayPage: FC = () => {
             autoplay: true,
           }}
           styles={{
-            width: 1,
-            height: 1,
-            visibility: "hidden",
-            zIndex: 999,
             barContainer: {
               backgroundColor: "black",
               display: "none",
