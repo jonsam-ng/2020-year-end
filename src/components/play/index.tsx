@@ -85,8 +85,8 @@ const PlayPage: FC = () => {
   window.onresize = function () {
     const videoPlayer: any = document.getElementById("video-js");
     if (videoPlayer) {
-      videoPlayer.style.width = window.innerWidth + "px";
-      videoPlayer.style.height = window.innerHeight + "px";
+      videoPlayer.style.width = "100vw";
+      videoPlayer.style.height = "100vh";
     }
   };
 
