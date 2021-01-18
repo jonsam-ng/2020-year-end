@@ -128,6 +128,7 @@ const PlayPage: FC = () => {
             canvas: {
               width: "100vw",
               height: "100vh",
+              zIndex: 1000
             },
           }}
         ></CanvasVideo>

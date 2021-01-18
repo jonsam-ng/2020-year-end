@@ -40,6 +40,18 @@ class CanvasVideo extends Component {
         const source = document.createElement('source')
         source.setAttribute('src', src)
         video.appendChild(source)
+        video.setAttribute("x5-playsinline", "true");
+        video.setAttribute("playsinline", "true");
+        video.setAttribute("webkit-playsinline", "true");
+        video.setAttribute("x5-video-video-type", "h5");
+        video.setAttribute("x-webkit-airplay", "true");
+        video.setAttribute("x5-video-video-fullscreen", "true");
+        video.setAttribute("x5-video-orientation", "true");
+        video.setAttribute("x5-video-ignore-metadata", "true");
+        video.setAttribute(
+          "controlslist",
+          "nofullscreen nodownload noremoteplayback"
+        );
         return video
     }
 
