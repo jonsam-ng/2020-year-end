@@ -52,18 +52,20 @@ const PlayPage: FC = () => {
     //   "controlslist",
     //   "nofullscreen nodownload noremoteplayback"
     // );
-    // videoPlayer.setAttribute("x5-playsinline", "true");
-    // videoPlayer.setAttribute("playsinline", "true");
-    // videoPlayer.setAttribute("webkit-playsinline", "true");
-    // videoPlayer.setAttribute("x5-video-videoPlayer-type", "h5");
-    // videoPlayer.setAttribute("x-webkit-airplay", "true");
-    // videoPlayer.setAttribute("x5-video-videoPlayer-fullscreen", "true");
-    // videoPlayer.setAttribute("x5-video-orientation", "true");
-    // videoPlayer.setAttribute("x5-video-ignore-metadata", "true");
-    // videoPlayer.setAttribute(
-    //   "controlslist",
-    //   "nofullscreen nodownload noremoteplayback"
-    // );
+    if (videoPlayer) {
+      videoPlayer.setAttribute("x5-playsinline", "true");
+      videoPlayer.setAttribute("playsinline", "true");
+      videoPlayer.setAttribute("webkit-playsinline", "true");
+      videoPlayer.setAttribute("x5-video-videoPlayer-type", "h5");
+      videoPlayer.setAttribute("x-webkit-airplay", "true");
+      videoPlayer.setAttribute("x5-video-videoPlayer-fullscreen", "true");
+      videoPlayer.setAttribute("x5-video-orientation", "true");
+      videoPlayer.setAttribute("x5-video-ignore-metadata", "true");
+      videoPlayer.setAttribute(
+        "controlslist",
+        "nofullscreen nodownload noremoteplayback"
+      );
+    }
     playVideo();
     // });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
@@ -81,8 +83,11 @@ const PlayPage: FC = () => {
   // }, []);
 
   window.onresize = function () {
-    videoRef.current.style.width = window.innerWidth + "px";
-    videoRef.current.style.height = window.innerHeight + "px";
+    const videoPlayer: any = document.getElementById("video-js");
+    if (videoPlayer) {
+      videoPlayer.style.width = window.innerWidth + "px";
+      videoPlayer.style.height = window.innerHeight + "px";
+    }
   };
 
   return (
@@ -115,6 +120,7 @@ const PlayPage: FC = () => {
             width: 1,
             height: 1,
             visibility: "hidden",
+            zIndex: 999,
             barContainer: {
               backgroundColor: "black",
               display: "none",
