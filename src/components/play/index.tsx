@@ -3,20 +3,11 @@ import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
-import videojs from "video.js";
+// import videojs from "video.js";
 import style from "./index.module.scss";
 // @ts-ignore
 // import wx from "weixin-js-sdk";
-import videoCanvas from "video-canvas";
-
-// wx.config({
-//   debug: false,
-//   appId: "",
-//   timestamp: 1,
-//   nonceStr: "",
-//   signature: "",
-//   jsApiList: [],
-// });
+import CanvasVideo from "react-canvas-video";
 
 const PlayPage: FC = () => {
   const history = useHistory();
@@ -32,59 +23,55 @@ const PlayPage: FC = () => {
   };
 
   useEffect(() => {
-    const player: any = videojs("video-js", {
-      controls: false,
-      autoplay: true,
-      preload: "auto",
-      loop: false,
-      sources: [
-        {
-          src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
-          type: "video/mp4",
-        },
-      ],
-    });
+    // const player: any = videojs("video-js", {
+    //   controls: false,
+    //   autoplay: true,
+    //   preload: "auto",
+    //   loop: false,
+    //   sources: [
+    //     {
+    //       src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
+    //       type: "video/mp4",
+    //     },
+    //   ],
+    // });
 
-    function playVideo() {
-      player?.play();
-    }
     const videoPlayer: any = document.getElementById("video-js");
-    player.ready(function () {
-      player.setAttribute("x5-playsinline", "true");
-      player.setAttribute("playsinline", "true");
-      player.setAttribute("webkit-playsinline", "true");
-      player.setAttribute("x5-video-player-type", "h5");
-      player.setAttribute("x-webkit-airplay", "true");
-      player.setAttribute("x5-video-player-fullscreen", "true");
-      player.setAttribute("x5-video-orientation", "true");
-      player.setAttribute("x5-video-ignore-metadata", "true");
-      player.setAttribute(
-        "controlslist",
-        "nofullscreen nodownload noremoteplayback"
-      );
-      videoPlayer.setAttribute("x5-playsinline", "true");
-      videoPlayer.setAttribute("playsinline", "true");
-      videoPlayer.setAttribute("webkit-playsinline", "true");
-      videoPlayer.setAttribute("x5-video-videoPlayer-type", "h5");
-      videoPlayer.setAttribute("x-webkit-airplay", "true");
-      videoPlayer.setAttribute("x5-video-videoPlayer-fullscreen", "true");
-      videoPlayer.setAttribute("x5-video-orientation", "true");
-      videoPlayer.setAttribute("x5-video-ignore-metadata", "true");
-      videoPlayer.setAttribute(
-        "controlslist",
-        "nofullscreen nodownload noremoteplayback"
-      );
-      playVideo();
+    function playVideo() {
+      videoPlayer?.play();
+    }
 
-      videoCanvas(player, {
-        canvas: document.querySelector("#canvas"),
-      });
-    });
+    // player.ready(function () {
+    // player.setAttribute("x5-playsinline", "true");
+    // player.setAttribute("playsinline", "true");
+    // player.setAttribute("webkit-playsinline", "true");
+    // player.setAttribute("x5-video-player-type", "h5");
+    // player.setAttribute("x-webkit-airplay", "true");
+    // player.setAttribute("x5-video-player-fullscreen", "true");
+    // player.setAttribute("x5-video-orientation", "true");
+    // player.setAttribute("x5-video-ignore-metadata", "true");
+    // player.setAttribute(
+    //   "controlslist",
+    //   "nofullscreen nodownload noremoteplayback"
+    // );
+    // videoPlayer.setAttribute("x5-playsinline", "true");
+    // videoPlayer.setAttribute("playsinline", "true");
+    // videoPlayer.setAttribute("webkit-playsinline", "true");
+    // videoPlayer.setAttribute("x5-video-videoPlayer-type", "h5");
+    // videoPlayer.setAttribute("x-webkit-airplay", "true");
+    // videoPlayer.setAttribute("x5-video-videoPlayer-fullscreen", "true");
+    // videoPlayer.setAttribute("x5-video-orientation", "true");
+    // videoPlayer.setAttribute("x5-video-ignore-metadata", "true");
+    // videoPlayer.setAttribute(
+    //   "controlslist",
+    //   "nofullscreen nodownload noremoteplayback"
+    // );
+    playVideo();
+    // });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
-
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
-      player.dispose();
+      // player.dispose();
     };
   }, [cdnUrl, pageIndex]);
 
@@ -103,15 +90,15 @@ const PlayPage: FC = () => {
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
-        <video
+        <CanvasVideo
           id="video-js"
           className={`video-js ${style.video_player}`}
           ref={videoRef}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "fill",
-          }}
+          // style={{
+          //   width: "100%",
+          //   height: "100%",
+          //   objectFit: "fill",
+          // }}
           autoPlay={true}
           controls={false}
           onEnded={handleHangoutClick}
@@ -126,8 +113,23 @@ const PlayPage: FC = () => {
           x5-video-ignore-metadata="true"
           controlsList="nofullscreen nodownload noremoteplayback"
           poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
-        ></video>
-        <canvas id="canvas"></canvas>
+          src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
+          options={{
+            text: "This copy is registered for XXX!",
+            poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
+            autoplay: true,
+          }}
+          styles={{
+            barContainer: {
+              backgroundColor: "black",
+              display: "none",
+            },
+            canvas: {
+              width: "100vw",
+              height: "100vh",
+            },
+          }}
+        ></CanvasVideo>
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
