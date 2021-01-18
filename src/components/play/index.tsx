@@ -7,15 +7,16 @@ import videojs from "video.js";
 import style from "./index.module.scss";
 // @ts-ignore
 // import wx from "weixin-js-sdk";
+import videoCanvas from "video-canvas";
 
-wx.config({
-  debug: false,
-  appId: "",
-  timestamp: 1,
-  nonceStr: "",
-  signature: "",
-  jsApiList: [],
-});
+// wx.config({
+//   debug: false,
+//   appId: "",
+//   timestamp: 1,
+//   nonceStr: "",
+//   signature: "",
+//   jsApiList: [],
+// });
 
 const PlayPage: FC = () => {
   const history = useHistory();
@@ -47,7 +48,7 @@ const PlayPage: FC = () => {
     function playVideo() {
       player?.play();
     }
-    const videoPlayer:any = document.getElementById("video-js");
+    const videoPlayer: any = document.getElementById("video-js");
     player.ready(function () {
       player.setAttribute("x5-playsinline", "true");
       player.setAttribute("playsinline", "true");
@@ -74,8 +75,13 @@ const PlayPage: FC = () => {
         "nofullscreen nodownload noremoteplayback"
       );
       playVideo();
+
+      videoCanvas(player, {
+        canvas: document.querySelector("#canvas"),
+      });
     });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
+
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
       player.dispose();
@@ -121,6 +127,7 @@ const PlayPage: FC = () => {
           controlsList="nofullscreen nodownload noremoteplayback"
           poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
         ></video>
+        <canvas id="canvas"></canvas>
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />

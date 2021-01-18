@@ -5394,6 +5394,11 @@ internal-slot@^1.0.2:
     has "^1.0.3"
     side-channel "^1.0.2"
 
+intervalometer@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npm.taobao.org/intervalometer/download/intervalometer-1.0.5.tgz#f43a16d223d0cf09624e35617934c930adc5e577"
+  integrity sha1-9DoW0iPQzwliTjVheTTJMK3F5Xc=
+
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -10265,6 +10270,13 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+video-canvas@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.npm.taobao.org/video-canvas/download/video-canvas-4.0.3.tgz#d1fb01656c3ae6d05af85361192a74b09521d5de"
+  integrity sha1-0fsBZWw65tBa+FNhGSp0sJUh1d4=
+  dependencies:
+    intervalometer "^1.0.5"
 
 "video.js@^6 || ^7", video.js@^7.10.2:
   version "7.10.2"
