@@ -5,7 +5,8 @@ import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
 import videojs from "video.js";
 import style from "./index.module.scss";
-const wx = require("weixin-js-sdk");
+// @ts-ignore
+import wx from "weixin-js-sdk";
 
 wx.config({
   debug: false,
