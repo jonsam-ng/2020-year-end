@@ -5,7 +5,7 @@ import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
 // import videojs from "video.js";
 import style from "./index.module.scss";
-import CanvasVideo from "../canvasPlayer";
+// import CanvasVideo from "../canvasPlayer";
 
 const PlayPage: FC = () => {
   const history = useHistory();
@@ -93,7 +93,7 @@ const PlayPage: FC = () => {
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
-        <CanvasVideo
+        <video
           id="video-js"
           className={`video-js ${style.video_player}`}
           ref={videoRef}
@@ -112,22 +112,22 @@ const PlayPage: FC = () => {
           controlsList="nofullscreen nodownload noremoteplayback"
           // poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
           src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
-          options={{
-            poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
-            autoplay: true,
-          }}
-          styles={{
-            barContainer: {
-              backgroundColor: "black",
-              display: "none",
-            },
-            canvas: {
-              width: "100vw",
-              height: "100vh",
-              zIndex: 1000
-            },
-          }}
-        ></CanvasVideo>
+          // options={{
+          //   poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
+          //   autoplay: true,
+          // }}
+          // styles={{
+          //   barContainer: {
+          //     backgroundColor: "black",
+          //     display: "none",
+          //   },
+          //   canvas: {
+          //     width: "100vw",
+          //     height: "100vh",
+          //     zIndex: 1000
+          //   },
+          // }}
+        ></video>
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
