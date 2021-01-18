@@ -110,7 +110,7 @@ const PlayPage: FC = () => {
           x5-video-orientation="portraint"
           x5-video-ignore-metadata="true"
           controlsList="nofullscreen nodownload noremoteplayback"
-          // poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
+          poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
           src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
           // options={{
           //   poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
@@ -128,6 +128,20 @@ const PlayPage: FC = () => {
           //   },
           // }}
         ></video>
+        <img
+          src={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
+          alt="bg"
+          style={{
+            height: "100vh",
+            width: "100vw",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            zIndex: 999,
+          }}
+        />
       </div>
       <div className={style.hangout_box}>
         <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
