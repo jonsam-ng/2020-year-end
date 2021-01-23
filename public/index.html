@@ -20,7 +20,7 @@
         var hWidth = html.getBoundingClientRect().width; //拿到html的宽度。打印出来是320
         // 320/16 = 20  所以1rem = 20px  
         //  因为此处除以16，所以16rem刚好把屏幕占满
-        html.style.fontSize = hWidth / 16 + "px";
+        html.style.fontSize = Math.min * (hWidth, 450) / 16 + "px";
         // 那么80px === 4rem  
       })()
     </script>
