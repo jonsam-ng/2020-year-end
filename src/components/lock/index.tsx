@@ -86,8 +86,10 @@ const LockPage: FC = () => {
 
   const handleKeyboardClick = (e: any, no:string) => {
     e.stopPropagation();
+    console.log('==>', {e, no});
     setPass(() => {
       let p = [...pass, no];
+      console.log('==>', {p});
       return p;
     })
   }
