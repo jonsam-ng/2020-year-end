@@ -25,6 +25,10 @@ const AudioPlayer: FC<AudioPlayerProps> = (props) => {
       closeVideoDblclick: true,
       controls: false,
       loop,
+      "x5-video-player-type": "h5",
+      "x5-video-orientation": "portraint",
+      playsinline: true,
+      rotateFullscreen: true,
     });
     player.play();
   }, [src, loop]);
