@@ -18,6 +18,36 @@ const PlayPage: FC = () => {
     history.push("/call");
   };
 
+  // const sourceOpen = (e: any) => {
+  //   const video: any = document.getElementById("video-js");
+  //   URL.revokeObjectURL(video.src);
+  //   // 设置 媒体的编码类型
+  //   const mime = 'video/webm; codecs="vorbis,vp8"';
+  //   const mediaSource = e.target;
+  //   const sourceBuffer = mediaSource.addSourceBuffer(mime);
+  //   const videoUrl = "https://qn.jonsam.site/%20eymain/assets/video/main/0.mp4";
+  //   fetch(videoUrl)
+  //     .then(function (response) {
+  //       return response.arrayBuffer();
+  //     })
+  //     .then(function (arrayBuffer) {
+  //       sourceBuffer.addEventListener("updateend", function (e: any) {
+  //         console.log('==>', sourceBuffer, mediaSource, arrayBuffer);
+  //         if (!sourceBuffer.updating ) {
+  //           // mediaSource.endOfStream();
+  //           // 在数据请求完成后，我们需要调用 endOfStream()。它会改变 MediaSource.readyState 为 ended 并且触发 sourceended 事件。
+  //           video
+  //             .play()
+  //             .then(function () {})
+  //             .catch(function (err: any) {
+  //               console.log(err);
+  //             });
+  //         }
+  //       });
+  //       sourceBuffer.appendBuffer(arrayBuffer);
+  //     });
+  // };
+
   useEffect(() => {
     const videoPlayer: any = document.getElementById("video-js");
     function playVideo() {
@@ -40,6 +70,11 @@ const PlayPage: FC = () => {
     }
     playVideo();
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
+
+    // const mediaSource = new MediaSource();
+    // videoPlayer.src = URL.createObjectURL(mediaSource);
+    // mediaSource.addEventListener("sourceopen", sourceOpen);
+
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
     };
@@ -81,7 +116,7 @@ const PlayPage: FC = () => {
             type="video/mp4"
           />
         </video>
-        <div
+        {/* <div
           style={{
             height: "100vh",
             width: "100vw",
@@ -93,7 +128,7 @@ const PlayPage: FC = () => {
             zIndex: 999,
             background: "transparent",
           }}
-        />
+        /> */}
       </div>
       <div className={style.hangout_box}>
         <img
