@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from "react";
+import React, { FC, useEffect } from "react";
 import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
@@ -9,7 +9,7 @@ import style from "./index.module.scss";
 const PlayPage: FC = () => {
   const history = useHistory();
   const { state, dispatch } = useStore();
-  const videoRef: any = useRef();
+  // const videoRef: any = useRef();
   const { pageIndex } = state;
   const { cdnUrl } = config;
 
@@ -96,6 +96,7 @@ const PlayPage: FC = () => {
       'x5-video-orientation': 'portraint',
       playsinline: true,
    });
+   player.play();
 
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);

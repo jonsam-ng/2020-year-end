@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 import config from "../../config";
 import TimeBlock from "../common/timeBlock";
 import { useHistory } from "react-router-dom";
-import badgeImage from "../../assets/image/0.png";
+import badgeImage from "../../assets/image/badge.png";
 import style from "./index.module.scss";
 
 const LockPage: FC = () => {
