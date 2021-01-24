@@ -5,9 +5,9 @@ import callImage from "../../assets/image/call.png";
 import { useHistory } from "react-router-dom";
 // import AudioPlayer from "../common/audioPlayer";
 // @ts-ignore
-import WeixinJSBridge from "../../plugin/wx-js-sdk";
 import config from "../../config";
 import style from "./index.module.scss";
+const WeixinJSBridge = require('../../plugin/wx-js-sdk');
 
 const CallPage: FC = () => {
   const history = useHistory();
