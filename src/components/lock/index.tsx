@@ -86,10 +86,8 @@ const LockPage: FC = () => {
 
   const handleKeyboardClick = (e: any, no:string) => {
     e.stopPropagation();
-    console.log('==>', {e, no});
     setPass(() => {
       let p = [...pass, no];
-      console.log('==>', {p});
       return p;
     })
   }
@@ -119,7 +117,7 @@ const LockPage: FC = () => {
               <span>刚刚</span>
             </div>
             <p>
-            庚子鼠年，宜中人同心同行，一往无前！鞭炮响，新年到！让我们鞭蹄，牛来运转！嬴在开门，胜在牛年！>>
+            庚子鼠年，宜中人同心同行，一往无前！鞭炮响，新年到！让我们扬鞭奋蹄，牛来运转！赢在开门，胜在牛年！>>
             </p>
           </div>
           <div className={style.lock_trigger}>
