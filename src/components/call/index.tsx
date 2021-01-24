@@ -5,7 +5,7 @@ import callImage from "../../assets/image/call.png";
 import { useHistory } from "react-router-dom";
 // import AudioPlayer from "../common/audioPlayer";
 // @ts-ignore
-import WeixinJSBridge from "weixin-js-sdk";
+import WeixinJSBridge from "../../plugin/wx-js-sdk";
 import config from "../../config";
 import style from "./index.module.scss";
 
@@ -27,6 +27,8 @@ const CallPage: FC = () => {
   };
 
   window.onload = function () {
+    if (!WeixinJSBridge) return;
+    // @ts-ignore
     WeixinJSBridge.config({
       // 配置信息, 即使不正确也能使用 wx.ready
       debug: false,
@@ -36,6 +38,7 @@ const CallPage: FC = () => {
       signature: "",
       jsApiList: [],
     });
+    // @ts-ignore
     WeixinJSBridge.ready(function () {
       // @ts-ignore
       document.getElementById("audio-player").play();
