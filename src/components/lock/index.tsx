@@ -61,9 +61,9 @@ const LockPage: FC = () => {
   useEffect(() => {
     if(pass.length >= 4 ) {
       if(pass.join("") === defaultPass) {
-        setTimeout(() => {
+        // setTimeout(() => {
           history.push("/desktop");
-        }, 500)
+        // }, 500)
       }else {
         setTryAgain(true);
         setPass([]);
@@ -81,9 +81,9 @@ const LockPage: FC = () => {
   const handleDelete = (e: any) => {
     e.stopPropagation();
     if (!pass.length && showKeyboard) {
-      setTimeout(() => {
+      // setTimeout(() => {
         setShowKeyboard(false);
-      }, 400)
+      // }, 400)
       return;
     }
     setPass(pass.join("").slice(0, -1).split(""));

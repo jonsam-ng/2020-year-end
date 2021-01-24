@@ -6,15 +6,25 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport"
       content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--这个也是iphone私有标签，允许全屏浏览。-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--iphone的私有标签，iphone顶端状态条的样式。-->
+    <!-- <meta content="black" name="apple-mobile-web-app-status-bar-style"> -->
+    <!--禁止数字自动识别为电话号码，这个比较有用，因为一串数字在iphone上会显示成蓝色，样式加成别的颜色也是不生效的。-->
+    <meta content="telephone=no" name="format-detection">
+    <!--禁止email识别-->
+    <meta content="email=no" name="format-detection">
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="2020 year end h5, made by heart by jonsam." />
+
     <title>宜川中学教育集团客户端</title>
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script>
+    <script src="%PUBLIC_URL%/flexible.min.js"></script>
+    <!-- <script>
       (function () {
         var html = document.documentElement;
         var hWidth = html.getBoundingClientRect().width; //拿到html的宽度。打印出来是320
@@ -23,7 +33,7 @@
         html.style.fontSize = Math.min * (hWidth, 720) / 16 + "px";
         // 那么80px === 4rem  
       })()
-    </script>
+    </script> -->
     <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script> -->
     <script>
         ; (function () {
