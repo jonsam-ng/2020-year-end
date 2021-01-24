@@ -19,7 +19,6 @@ const PlayPage: FC = () => {
   };
 
   useEffect(() => {
-
     const videoPlayer: any = document.getElementById("video-js");
     function playVideo() {
       videoPlayer?.play();
@@ -75,8 +74,13 @@ const PlayPage: FC = () => {
           x5-video-ignore-metadata="true"
           controlsList="nofullscreen nodownload noremoteplayback"
           poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
-          src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
-        ></video>
+          // src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
+        >
+          <source
+            src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <div
           style={{
             height: "100vh",
@@ -92,7 +96,11 @@ const PlayPage: FC = () => {
         />
       </div>
       <div className={style.hangout_box}>
-        <img src={hangoutImage} alt="hangout" onTouchStart={handleHangoutClick} />
+        <img
+          src={hangoutImage}
+          alt="hangout"
+          onTouchStart={handleHangoutClick}
+        />
       </div>
     </div>
   );
