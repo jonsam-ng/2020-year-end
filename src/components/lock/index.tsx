@@ -154,7 +154,7 @@ const LockPage: FC = () => {
                 className={`${style.board_item}`}
                 data-index={no}
                 key={no}
-                onClick={(e) => handleKeyboardClick(e, no)}
+                onTouchStart={(e) => handleKeyboardClick(e, no)}
               >
                 <span>{no}</span>
                 <span>{term}</span>
