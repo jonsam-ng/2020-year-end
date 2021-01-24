@@ -3,7 +3,7 @@ import config from "../../config";
 import TimeBlock from "../common/timeBlock";
 import { useHistory } from "react-router-dom";
 import badgeImage from "../../assets/image/badge.png";
-import AudioPlayer from "../common/audioPlayer";
+// import AudioPlayer from "../common/audioPlayer";
 import style from "./index.module.scss";
 
 const LockPage: FC = () => {
@@ -172,7 +172,8 @@ const LockPage: FC = () => {
         </div>
       )}
 
-      <AudioPlayer src={`${cdnUrl}/audio/message.mp3`} />
+      {/* <AudioPlayer src={`${cdnUrl}/audio/message.mp3`} /> */}
+      <audio src={`${cdnUrl}/audio/message.mp3`} autoPlay={true} preload='preload' controls={false} className="hidden"></audio>
     </div>
   );
 };

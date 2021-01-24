@@ -4,6 +4,10 @@
   -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
 :global {
   video::-webkit-media-controls-start-playback-button {
     display: none;

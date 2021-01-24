@@ -3,7 +3,7 @@ import { useStore, actionType } from "../../store";
 import hangoutImage from "../../assets/image/hangout.png";
 import callImage from "../../assets/image/call.png";
 import { useHistory } from "react-router-dom";
-import AudioPlayer from "../common/audioPlayer";
+// import AudioPlayer from "../common/audioPlayer";
 import config from "../../config";
 import style from "./index.module.scss";
 
@@ -52,7 +52,8 @@ const CallPage: FC = () => {
           <img src={callImage} alt="call" onTouchStart={handleCallClick} />
         </div>
       </div>
-      <AudioPlayer src={`${cdnUrl}/audio/call.mp3`} loop={true} />
+      {/* <AudioPlayer src={`${cdnUrl}/audio/call.mp3`} loop={true} /> */}
+      <audio src={`${cdnUrl}/audio/call.mp3`} loop={true} autoPlay={true} preload='preload' controls={false} className="hidden"></audio>
     </div>
   );
 };

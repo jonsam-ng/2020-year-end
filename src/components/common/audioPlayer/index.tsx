@@ -33,7 +33,7 @@ const AudioPlayer: FC<AudioPlayerProps> = (props) => {
     player.play();
   }, [src, loop]);
 
-  return <div id="audio-player" style={{ visibility: "hidden" }} />;
+  return <div id="audio-player" style={{ visibility: "hidden", opacity: 0 }} />;
 };
 
 export default AudioPlayer;
