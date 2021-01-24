@@ -4,6 +4,8 @@ import hangoutImage from "../../assets/image/hangout.png";
 import callImage from "../../assets/image/call.png";
 import { useHistory } from "react-router-dom";
 // import AudioPlayer from "../common/audioPlayer";
+// @ts-ignore
+import WeixinJSBridge from "weixin-js-sdk";
 import config from "../../config";
 import style from "./index.module.scss";
 
@@ -22,6 +24,22 @@ const CallPage: FC = () => {
   const handleCallClick = (e: any) => {
     e.stopPropagation();
     history.push("/play");
+  };
+
+  window.onload = function () {
+    WeixinJSBridge.config({
+      // 配置信息, 即使不正确也能使用 wx.ready
+      debug: false,
+      appId: "",
+      timestamp: 1,
+      nonceStr: "",
+      signature: "",
+      jsApiList: [],
+    });
+    WeixinJSBridge.ready(function () {
+      // @ts-ignore
+      document.getElementById("audio-player").play();
+    });
   };
 
   return (
@@ -53,7 +71,7 @@ const CallPage: FC = () => {
         </div>
       </div>
       {/* <AudioPlayer src={`${cdnUrl}/audio/call.mp3`} loop={true} /> */}
-        {/* 主动交互使 audio autoplay */}
+      {/* 主动交互使 audio autoplay */}
       {/* document.addEventListener('DOMContentLoaded', function () {
         function audioAutoPlay() {
             var audio = document.getElementById('audio');
@@ -80,6 +98,7 @@ const CallPage: FC = () => {
         preload="preload"
         controls={false}
         className="hidden"
+        id="audio-player"
       ></audio>
     </div>
   );

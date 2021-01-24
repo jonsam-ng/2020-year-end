@@ -10469,7 +10469,7 @@ websocket-extensions@>=0.1.1:
 
 weixin-js-sdk@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.npm.taobao.org/weixin-js-sdk/download/weixin-js-sdk-1.6.0.tgz#ff50484d8118ce1208f11248cf4a1c0831577514"
+  resolved "http://10.80.84.176:4873/weixin-js-sdk/-/weixin-js-sdk-1.6.0.tgz#ff50484d8118ce1208f11248cf4a1c0831577514"
   integrity sha1-/1BITYEYzhII8RJIz0ocCDFXdRQ=
 
 whatwg-fetch@^3.0.0:
