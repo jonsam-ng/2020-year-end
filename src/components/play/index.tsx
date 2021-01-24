@@ -3,7 +3,7 @@ import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
-import Player from "xgplayer";
+import Player from "../common/player";
 import style from "./index.module.scss";
 
 const PlayPage: FC = () => {

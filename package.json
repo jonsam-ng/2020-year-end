@@ -1,7 +1,7 @@
 {
   "name": "2020-year-end",
   "version": "0.1.0",
-  "homepage": "http://qn176q151.hn-bkt.clouddn.com/",
+  "homepage": "https://ey.jonsam.site",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
@@ -61,8 +61,7 @@
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",
     "weixin-js-sdk": "^1.6.0",
-    "workbox-webpack-plugin": "4.3.1",
-    "xgplayer": "^2.17.3"
+    "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
