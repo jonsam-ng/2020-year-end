@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 // @ts-ignore
 import config from "../../config";
 import style from "./index.module.scss";
-const WeixinJSBridge = require('../../plugin/wx-js-sdk');
+// const WeixinJSBridge = require('../../plugin/wx-js-sdk');
 
 const CallPage: FC = () => {
   const history = useHistory();
@@ -26,24 +26,24 @@ const CallPage: FC = () => {
     history.push("/play");
   };
 
-  window.onload = function () {
-    if (!WeixinJSBridge) return;
-    // @ts-ignore
-    WeixinJSBridge.config({
-      // 配置信息, 即使不正确也能使用 wx.ready
-      debug: false,
-      appId: "",
-      timestamp: 1,
-      nonceStr: "",
-      signature: "",
-      jsApiList: [],
-    });
-    // @ts-ignore
-    WeixinJSBridge.ready(function () {
-      // @ts-ignore
-      document.getElementById("audio-player").play();
-    });
-  };
+  // window.onload = function () {
+  //   if (!WeixinJSBridge) return;
+  //   // @ts-ignore
+  //   WeixinJSBridge.config({
+  //     // 配置信息, 即使不正确也能使用 wx.ready
+  //     debug: false,
+  //     appId: "",
+  //     timestamp: 1,
+  //     nonceStr: "",
+  //     signature: "",
+  //     jsApiList: [],
+  //   });
+  //   // @ts-ignore
+  //   WeixinJSBridge.ready(function () {
+  //     // @ts-ignore
+  //     document.getElementById("audio-player").play();
+  //   });
+  // };
 
   return (
     <div className={style.call_container}>
