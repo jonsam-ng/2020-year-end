@@ -2,6 +2,10 @@
 .lock_container {
   @include bgStyle;
 
+  .audioWrapper{
+    visibility: hidden;
+  }
+
   .lock_screen {
     display: flex;
     align-items: center;

@@ -3,6 +3,7 @@ import { useStore, actionType } from "../../store";
 import hangoutImage from "../../assets/image/hangout.png";
 import callImage from "../../assets/image/call.png";
 import { useHistory } from "react-router-dom";
+import AudioPlayer from "../common/audioPlayer";
 import config from "../../config";
 import style from "./index.module.scss";
 
@@ -29,7 +30,9 @@ const CallPage: FC = () => {
         <div
           className={`${style.avatar} ${style[`avatar_${pageIndex}`]}`}
           style={{
-            backgroundImage: `url(${cdnUrl + "/image/avatar/" + pageIndex + ".png"})`,
+            backgroundImage: `url(${
+              cdnUrl + "/image/avatar/" + pageIndex + ".png"
+            })`,
           }}
         />
         <h1>{avatarHint[pageIndex]}</h1>
@@ -39,13 +42,17 @@ const CallPage: FC = () => {
       </div>
       <div className={style.call_box}>
         <div>
-          <img src={hangoutImage} alt="hangout" onTouchStart={handleHangoutClick} />
+          <img
+            src={hangoutImage}
+            alt="hangout"
+            onTouchStart={handleHangoutClick}
+          />
         </div>
         <div>
           <img src={callImage} alt="call" onTouchStart={handleCallClick} />
         </div>
       </div>
-      <audio src={`${cdnUrl}/audio/call.mp3`} autoPlay={true} loop={true} />
+      <AudioPlayer src={`${cdnUrl}/audio/call.mp3`} loop={true} />
     </div>
   );
 };

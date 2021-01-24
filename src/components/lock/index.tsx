@@ -3,6 +3,7 @@ import config from "../../config";
 import TimeBlock from "../common/timeBlock";
 import { useHistory } from "react-router-dom";
 import badgeImage from "../../assets/image/badge.png";
+import AudioPlayer from "../common/audioPlayer";
 import style from "./index.module.scss";
 
 const LockPage: FC = () => {
@@ -72,6 +73,10 @@ const LockPage: FC = () => {
       }
     } 
   }, [pass, defaultPass, history]);
+
+  useEffect(() => {
+    
+  }, [cdnUrl])
 
   const handleDelete = (e: any) => {
     e.stopPropagation();
@@ -167,7 +172,7 @@ const LockPage: FC = () => {
         </div>
       )}
 
-      <audio src={`${cdnUrl}/audio/message.mp3`} autoPlay={true} loop={false}/>
+      <AudioPlayer src={`${cdnUrl}/audio/message.mp3`} />
     </div>
   );
 };

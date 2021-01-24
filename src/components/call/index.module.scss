@@ -5,6 +5,10 @@
   color: #fff;
   position: relative;
 
+  .audioWrapper {
+    visibility: hidden;
+  }
+
   .avatar_box {
     padding-top: 100px;
     display: flex;
@@ -29,7 +33,7 @@
       font-weight: 300;
       color: #a8a7a7;
       margin: 0;
-      &.bounce_dots{
+      &.bounce_dots {
         animation: heartBeat 2s ease-in-out 2s infinite;
         font-weight: 400;
         letter-spacing: 0.08rem;
@@ -44,7 +48,7 @@
     justify-content: space-around;
     bottom: 2rem;
     z-index: 999;
-    img{
+    img {
       width: 2.8rem;
       height: auto;
       animation: bounce 2s ease-in-out 2s infinite;
