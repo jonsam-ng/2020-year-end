@@ -105,7 +105,6 @@ const LockPage: FC = () => {
   return (
     <div
       className={style.lock_container}
-      onClick={handleTouchScreen}
       onTouchStart={handleTouchScreen}
     >
       {!showKeyboard && (
@@ -165,7 +164,7 @@ const LockPage: FC = () => {
           </div>
           <div className={style.opt_panel}>
             <span>紧急呼叫</span>
-            <span onClick={handleDelete}>{pass.length ? "删除" : "返回"}</span>
+            <span onTouchStart={handleDelete}>{pass.length ? "删除" : "返回"}</span>
           </div>
         </div>
       )}

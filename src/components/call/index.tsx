@@ -39,10 +39,10 @@ const CallPage: FC = () => {
       </div>
       <div className={style.call_box}>
         <div>
-          <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
+          <img src={hangoutImage} alt="hangout" onTouchStart={handleHangoutClick} />
         </div>
         <div>
-          <img src={callImage} alt="call" onClick={handleCallClick} />
+          <img src={callImage} alt="call" onTouchStart={handleCallClick} />
         </div>
       </div>
       <audio src={`${cdnUrl}/audio/call.mp3`} autoPlay={true} loop={true} />

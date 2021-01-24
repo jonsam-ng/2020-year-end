@@ -3,9 +3,7 @@ import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
-// import videojs from "video.js";
 import style from "./index.module.scss";
-// import CanvasVideo from "../canvasPlayer";
 
 const PlayPage: FC = () => {
   const history = useHistory();
@@ -21,37 +19,12 @@ const PlayPage: FC = () => {
   };
 
   useEffect(() => {
-    // const player: any = videojs("video-js", {
-    //   controls: false,
-    //   autoplay: true,
-    //   preload: "auto",
-    //   loop: false,
-    //   sources: [
-    //     {
-    //       src: `${cdnUrl}/video/main/${pageIndex}.mp4`,
-    //       type: "video/mp4",
-    //     },
-    //   ],
-    // });
 
     const videoPlayer: any = document.getElementById("video-js");
     function playVideo() {
       videoPlayer?.play();
     }
 
-    // player.ready(function () {
-    // player.setAttribute("x5-playsinline", "true");
-    // player.setAttribute("playsinline", "true");
-    // player.setAttribute("webkit-playsinline", "true");
-    // player.setAttribute("x5-video-player-type", "h5");
-    // player.setAttribute("x-webkit-airplay", "true");
-    // player.setAttribute("x5-video-player-fullscreen", "true");
-    // player.setAttribute("x5-video-orientation", "true");
-    // player.setAttribute("x5-video-ignore-metadata", "true");
-    // player.setAttribute(
-    //   "controlslist",
-    //   "nofullscreen nodownload noremoteplayback"
-    // );
     if (videoPlayer) {
       videoPlayer.setAttribute("x5-playsinline", "true");
       videoPlayer.setAttribute("playsinline", "true");
@@ -67,20 +40,11 @@ const PlayPage: FC = () => {
       );
     }
     playVideo();
-    // });
     document.addEventListener("WeixinJSBridgeReady", playVideo, false);
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
-      // player.dispose();
     };
   }, [cdnUrl, pageIndex]);
-
-  // useEffect(() => {
-  // const videoPlayer: any = document.getElementById("video-js");
-  // wx.ready(function () {
-  // videoPlayer.play();
-  // });
-  // }, []);
 
   window.onresize = function () {
     const videoPlayer: any = document.getElementById("video-js");
@@ -112,25 +76,8 @@ const PlayPage: FC = () => {
           controlsList="nofullscreen nodownload noremoteplayback"
           poster={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
           src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
-          // options={{
-          //   poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
-          //   autoplay: true,
-          // }}
-          // styles={{
-          //   barContainer: {
-          //     backgroundColor: "black",
-          //     display: "none",
-          //   },
-          //   canvas: {
-          //     width: "100vw",
-          //     height: "100vh",
-          //     zIndex: 1000
-          //   },
-          // }}
         ></video>
         <div
-          // src={`${cdnUrl}/image/poster/poster${pageIndex}.png`}
-          // alt="bg"
           style={{
             height: "100vh",
             width: "100vw",
@@ -145,7 +92,7 @@ const PlayPage: FC = () => {
         />
       </div>
       <div className={style.hangout_box}>
-        <img src={hangoutImage} alt="hangout" onClick={handleHangoutClick} />
+        <img src={hangoutImage} alt="hangout" onTouchStart={handleHangoutClick} />
       </div>
     </div>
   );
