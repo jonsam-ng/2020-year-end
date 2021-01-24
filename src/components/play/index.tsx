@@ -3,6 +3,7 @@ import { useStore, actionType } from "../../store";
 import { useHistory } from "react-router-dom";
 import hangoutImage from "../../assets/image/hangout.png";
 import config from "../../config";
+import Player from "xgplayer";
 import style from "./index.module.scss";
 
 const PlayPage: FC = () => {
@@ -75,6 +76,27 @@ const PlayPage: FC = () => {
     // videoPlayer.src = URL.createObjectURL(mediaSource);
     // mediaSource.addEventListener("sourceopen", sourceOpen);
 
+    const player = new Player({
+      id: "vs",
+      url: `${cdnUrl}/video/main/${pageIndex}.mp4`,
+      width: "100%",
+      height: "100%",
+      autoplay: true,
+      videoInit: true,
+      poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
+      download: false,
+      pip: false,
+      cssFullscreen: false,
+      screenShot: true,
+      keyShortcut: 'off',
+      errorTips: `加载失败，请刷新重试！`,
+      closeVideoDblclick: true,
+      controls: false,
+      'x5-video-player-type': 'h5',
+      'x5-video-orientation': 'portraint',
+      playsinline: true,
+   });
+
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
     };
@@ -91,7 +113,8 @@ const PlayPage: FC = () => {
   return (
     <div className={style.play_container}>
       <div className={style.play_wrapper}>
-        <video
+        <div id="vs"></div>
+        {/* <video
           id="video-js"
           className={`video-js ${style.video_player}`}
           ref={videoRef}
@@ -115,7 +138,7 @@ const PlayPage: FC = () => {
             src={`${cdnUrl}/video/main/${pageIndex}.mp4`}
             type="video/mp4"
           />
-        </video>
+        </video> */}
         {/* <div
           style={{
             height: "100vh",

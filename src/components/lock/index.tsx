@@ -146,7 +146,7 @@ const LockPage: FC = () => {
           <div className={style.visual_keyboard_wrapper}>
             <div className={style.visual_keyboard}>
             {keyboardMap.map(({ no, term }) => (
-              <div className={`${style.board_item_wrapper}`}>
+              <div className={`${style.board_item_wrapper}`} key={no}>
                 <div
                 className={`${style.board_item}`}
                 data-index={no}
