@@ -10467,11 +10467,6 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.npm.taobao.org/websocket-extensions/download/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
   integrity sha1-f4RzvIOd/YdgituV1+sHUhFXikI=
 
-weixin-js-sdk@^1.6.0:
-  version "1.6.0"
-  resolved "http://10.80.84.176:4873/weixin-js-sdk/-/weixin-js-sdk-1.6.0.tgz#ff50484d8118ce1208f11248cf4a1c0831577514"
-  integrity sha1-/1BITYEYzhII8RJIz0ocCDFXdRQ=
-
 whatwg-fetch@^3.0.0:
   version "3.5.0"
   resolved "https://registry.npm.taobao.org/whatwg-fetch/download/whatwg-fetch-3.5.0.tgz#605a2cd0a7146e5db141e29d1c62ab84c0c4c868"
