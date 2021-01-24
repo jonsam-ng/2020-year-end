@@ -53,7 +53,34 @@ const CallPage: FC = () => {
         </div>
       </div>
       {/* <AudioPlayer src={`${cdnUrl}/audio/call.mp3`} loop={true} /> */}
-      <audio src={`${cdnUrl}/audio/call.mp3`} loop={true} autoPlay={true} preload='preload' controls={false} className="hidden"></audio>
+        {/* 主动交互使 audio autoplay */}
+      {/* document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById('audio');
+                audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay();
+        });
+        //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+        document.addEventListener('touchstart', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('audio');
+                    audio.play();
+            }
+            audioAutoPlay();
+        }); */}
+
+      <audio
+        src={`${cdnUrl}/audio/call.mp3`}
+        loop={true}
+        autoPlay={true}
+        preload="preload"
+        controls={false}
+        className="hidden"
+      ></audio>
     </div>
   );
 };

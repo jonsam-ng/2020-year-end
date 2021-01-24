@@ -95,7 +95,7 @@ const PlayPage: FC = () => {
       'x5-video-player-type': 'h5',
       'x5-video-orientation': 'portraint',
       playsinline: true,
-      rotateFullscreen: true,
+      // rotateFullscreen: true,
    });
    player.play();
 
