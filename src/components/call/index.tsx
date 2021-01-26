@@ -52,7 +52,7 @@ const CallPage: FC = () => {
           className={`${style.avatar} ${style[`avatar_${pageIndex}`]}`}
           style={{
             backgroundImage: `url(${
-              cdnUrl + "/image/avatar/" + pageIndex + ".png"
+              cdnUrl + "/image/avatar/" + pageIndex + ".png?t=" + (new Date().getTime())
             })`,
           }}
         />

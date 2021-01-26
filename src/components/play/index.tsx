@@ -78,12 +78,12 @@ const PlayPage: FC = () => {
 
     const player = new Player({
       id: "vs",
-      url: `${cdnUrl}/video/main/${pageIndex}.mp4`,
+      url: `${cdnUrl}/video/main/${pageIndex}.mp4?t=${new Date().getTime()}`,
       width: "100%",
       height: "100%",
       autoplay: true,
       videoInit: true,
-      poster: `${cdnUrl}/image/poster/poster${pageIndex}.png`,
+      poster: `${cdnUrl}/image/poster/poster${pageIndex}.png?t=${new Date().getTime()}`,
       download: false,
       pip: false,
       cssFullscreen: false,
