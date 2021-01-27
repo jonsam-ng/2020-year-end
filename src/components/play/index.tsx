@@ -88,21 +88,39 @@ const PlayPage: FC = () => {
       pip: false,
       cssFullscreen: false,
       screenShot: true,
-      keyShortcut: 'off',
+      keyShortcut: "off",
       errorTips: `加载失败，请刷新重试！`,
       closeVideoDblclick: true,
       controls: false,
-      'x5-video-player-type': 'h5',
-      'x5-video-orientation': 'portraint',
+      "x5-video-player-type": "h5",
+      "x5-video-orientation": "portraint",
       playsinline: true,
       // rotateFullscreen: true,
-   });
-   player.play();
+      closeVideoClick: true,
+    });
+    player.play();
+
+    //  设置定时器检测视频的播放状态
+    // const timer: any = null;
+    // clearInterval(timer);
+    player.on("timeupdate", (e: any) => {
+      if (player.ended) {
+        // clearInterval(timer);
+        // player.destroy(true);
+        dispatch({ type: actionType.NEXT_PAGE, payload: {} });
+        history.push("/call");
+      }
+    });
+    // setInterval(() => {
+
+    // }, 500);
 
     return () => {
       document.removeEventListener("WeixinJSBridgeReady", playVideo, false);
+      // clearInterval(timer);
+      if (player) player.destroy(false);
     };
-  }, [cdnUrl, pageIndex]);
+  }, [cdnUrl, pageIndex, history, dispatch]);
 
   window.onresize = function () {
     const videoPlayer: any = document.getElementById("video-js");
