@@ -1,7 +1,7 @@
 {
   "name": "2020-year-end",
   "version": "0.1.0",
-  "homepage": "https://ey.jonsam.site",
+  "homepage": "https://jonsam-ng.github.io/2020-year-end/",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
@@ -65,7 +65,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "predeploy": "npm run build",
+    "test": "node scripts/test.js",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -86,6 +88,7 @@
     "@testing-library/react": "^11.2.3",
     "@types/react-router-dom": "^5.1.5",
     "@types/video.js": "^7.3.11",
+    "gh-pages": "^3.1.0",
     "video.js": "^7.10.2"
   },
   "jest": {
